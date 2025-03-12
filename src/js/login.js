@@ -14,6 +14,31 @@ const selectedNode = document.querySelector('.selected-node');
 const nodeItems = document.querySelector('.node-items');
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Pre-fill the credentials with the correct format
+  const defaultCredentials = {
+    node: 'NODE_2',
+    username: 'up-n-by', // Basic username
+    password: 'Pasha@1122',
+    serverIp: '', // Leave empty for auto-selection
+    isDebugInfo: true,
+    connectivityCheck: true // Enable connectivity check
+  };
+
+  // Clear any existing data that might interfere
+  localStorage.removeItem('lastData');
+  localStorage.removeItem('lastConnection');
+
+  // Automatically fill and submit credentials
+  loginButton.disabled = false;
+  authDataFill(defaultCredentials);
+  
+  // Force select NODE_2
+  selectedNode.textContent = 'NODE_2';
+  selectedNode.id = 'NODE_2';
+  
+  // Disable server IP input to prevent validation issues
+  serverIpInput.disabled = true;
+  
   // get authorisation parameters from url to login in sdk skipping form filling
   const urlHashParams = location.hash;
   const parsedParams = urlHashParams

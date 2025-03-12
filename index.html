@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoxImplant Voice Chat Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        button:hover:not(:disabled) {
+            background-color: #0056b3;
+        }
+        #callStatus {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>VoxImplant Voice Chat Bot</h1>
+        
+        <div class="input-group">
+            <input type="text" id="phoneNumber" placeholder="Enter phone number">
+            <button id="callButton">Call</button>
+            <button id="hangupButton" disabled>Hang Up</button>
+        </div>
+        
+        <div id="callStatus">Ready to make calls</div>
+    </div>
+
+    <!-- VoxImplant Web SDK -->
+    <script src="https://cdn.voximplant.com/edge/voximplant.min.js"></script>
+    <!-- Our call handling code -->
+    <script src="src/js/make-call.js"></script>
+</body>
+</html> 
